@@ -11,10 +11,7 @@
 [![Conan package](https://img.shields.io/badge/Conan-package-blueviolet)](https://conan.io/center/nameof)
 [![Vcpkg package](https://img.shields.io/badge/Vcpkg-package-blueviolet)](https://github.com/microsoft/vcpkg/tree/master/ports/nameof)
 [![License](https://img.shields.io/github/license/Neargye/nameof.svg)](LICENSE)
-[![Build status](https://travis-ci.org/Neargye/nameof.svg?branch=master)](https://travis-ci.org/Neargye/nameof)
-[![Build status](https://ci.appveyor.com/api/projects/status/yq5fk0d9mwljbubt/branch/master?svg=true)](https://ci.appveyor.com/project/Neargye/nameof/branch/master)
-[![Codacy badge](https://api.codacy.com/project/badge/Grade/1d06f3f07afe4f34acd29c0c8efa830b)](https://www.codacy.com/app/Neargye/nameof?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Neargye/nameof&amp;utm_campaign=Badge_Grade)
-[![Try online](https://img.shields.io/badge/try-online-blue.svg)](https://wandbox.org/permlink/VL44h47DKALBE5Oh)
+[![Try online](https://img.shields.io/badge/try-online-blue.svg)](https://wandbox.org/permlink/PBBzVKlbMIfC3WOk)
 [![Compiler explorer](https://img.shields.io/badge/compiler_explorer-online-blue.svg)](https://godbolt.org/z/s_ecko)
 
 # Nameof C++
@@ -135,6 +132,8 @@ You should add required file [nameof.hpp](include/nameof.hpp).
 If you are using [vcpkg](https://github.com/Microsoft/vcpkg/) on your project for external dependencies, then you can use the [nameof package](https://github.com/microsoft/vcpkg/tree/master/ports/nameof).
 
 If you are using [Conan](https://www.conan.io/) to manage your dependencies, merely add `nameof/x.y.z` to your conan's requires, where `x.y.z` is the release version you want to use.
+
+Archlinux users can install `nameof` by package manager AUR, using the following command: `yay -S nameof`.
 
 Alternatively, you can use something like [CPM](https://github.com/TheLartians/CPM) which is based on CMake's `Fetch_Content` module.
 
