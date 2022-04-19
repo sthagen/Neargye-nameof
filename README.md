@@ -1,3 +1,5 @@
+[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://stand-with-ukraine.pp.ua)
+
 ```text
  _   _                             __    _____
 | \ | |                           / _|  / ____|_     _
@@ -147,7 +149,7 @@ CPMAddPackage(
 
 ## Compiler compatibility
 
-* Clang/LLVM >= 5
+* Clang/LLVM >= 6
 * MSVC++ >= 14.11 / Visual Studio >= 2017
 * Xcode >= 10
 * GCC >= 7 (GCC >= 9 for NAMEOF_ENUM)
