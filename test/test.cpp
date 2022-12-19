@@ -113,7 +113,7 @@ enum class OutOfRange {
   too_high = NAMEOF_ENUM_RANGE_MAX + 1
 };
 
-struct TestRtti{
+struct TestRtti {
   struct Base { virtual ~Base() = default; };
   struct Derived : Base {};
 };
@@ -910,12 +910,23 @@ TEST_CASE("NAMEOF_SHORT_TYPE_RTTI") {
 
 #if defined(NAMEOF_MEMBER_SUPPORTED) && NAMEOF_MEMBER_SUPPORTED
 
+struct StructMemberInitializationUsingNameof {
+  std::string teststringfield = std::string{nameof::nameof_member<&StructMemberInitializationUsingNameof::teststringfield>()};
+};
+
+struct StructWithNonConstexprDestructor {
+  ~StructWithNonConstexprDestructor() {}
+  int somefield;
+};
+
 TEST_CASE("NAMEOF_MEMBER") {
   REQUIRE(NAMEOF_MEMBER(&SomeStruct::somefield) == "somefield");
   REQUIRE(NAMEOF_MEMBER(&SomeStruct::SomeMethod1) == "SomeMethod1");
   REQUIRE(NAMEOF_MEMBER(&Long::LL::field) == "field");
   constexpr auto member_ptr = &SomeStruct::somefield;
   REQUIRE(NAMEOF_MEMBER(member_ptr) == "somefield");
+  REQUIRE(NAMEOF_MEMBER(&StructMemberInitializationUsingNameof::teststringfield) == "teststringfield");
+  REQUIRE(NAMEOF_MEMBER(&StructWithNonConstexprDestructor::somefield) == "somefield");
 }
 
 TEST_CASE("nameof_member") {
@@ -924,6 +935,8 @@ TEST_CASE("nameof_member") {
   REQUIRE(nameof::nameof_member<&Long::LL::field>() == "field");
   constexpr auto member_ptr = &SomeStruct::somefield;
   REQUIRE(nameof::nameof_member<member_ptr>() == "somefield");
+  REQUIRE(nameof::nameof_member<&StructMemberInitializationUsingNameof::teststringfield>() == "teststringfield");
+  REQUIRE(nameof::nameof_member<&StructWithNonConstexprDestructor::somefield>() == "somefield");
 }
 
 #endif
